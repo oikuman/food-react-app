@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.list {
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  margin: 20px;
+  padding: 10px;
+  font-size: 24px;
+  background-color: grey;
+}
+
+.selected {
+  background-color: aqua;
+}
