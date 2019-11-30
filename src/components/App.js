@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import { NavLink } from "react-router-dom";
+
 import Menu from "./Menu/Menu";
 import Signup from "./Sinup/Signup";
 
@@ -19,7 +20,7 @@ function App() {
       <Switch>
         <Route path="/products" component={Menu} />
         <Route path="/signup" component={Signup} />
-        <Redirect to="/signup" />
+        <Redirect to="/products" />
       </Switch>
     </div>
   );

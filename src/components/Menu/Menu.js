@@ -1,11 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
+
 import style from "./Menu.module.css";
 import Card from "../Card/Card";
+import SearchForm from "../SearchForm/SearchForm";
+
+const initialValue = "";
 
 class Menu extends Component {
   state = {
     products: null
+  };
+
+  handleSearchForm = e => {
+    e.preventDefault();
+    const text = e.target.querySelector("input");
+    console.log(text.value);
+    text.value = initialValue;
   };
 
   getProducts = async () => {
@@ -28,11 +39,18 @@ class Menu extends Component {
 
   render() {
     const { products } = this.state;
+
     return (
-      <ul className={style.menu}>
-        {products &&
-          products.map(product => <Card key={product.id} product={product} />)}
-      </ul>
+      <div>
+        <SearchForm handleSearchForm={this.handleSearchForm} />
+        <ul className={style.menu}>
+          {products &&
+            products.map(product => (
+              <Card key={product.id} product={product} />
+            ))}
+        </ul>
+        <div className={style.round}></div>
+      </div>
     );
   }
 }
